@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+'''a function to return pascal triangle'''
+
+
 def pascal_triangle(n):
     if n == 0:
         return []
@@ -12,9 +16,3 @@ def pascal_triangle(n):
         triangle.append(row)
     
     return triangle
-
-# Example usage:
-if __name__ == "__main__":
-    n = int(input("Enter the number of rows for Pascal's triangle: "))
-    print_triangle(pascal_triangle(n))
-
