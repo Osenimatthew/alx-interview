@@ -3,15 +3,8 @@
 
 
 def pascal_triangle(n):
-    '''
-    Pascal's triangle
-    Args:
-      n (int): The number of rows of the triangle
-    Returns:
-      List of lists of integers representing the Pascal’s triangle
-    '''
     lists = []
-    if n == 0:
+    if n <= 0:
         return lists
     for i in range(n):
         lists.append([])
