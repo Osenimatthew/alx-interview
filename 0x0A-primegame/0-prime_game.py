@@ -4,8 +4,9 @@ Prime Game - A game where players take turns picking prime numbers and
 removing them and their multiples. Maria plays first, and both play optimally.
 """
 
+
 def sieve_of_eratosthenes(max_n):
-    """Generates a list of prime numbers up to max_n using the Sieve of Eratosthenes."""
+    """Generates a list of prime numbers up to max_n."""
     sieve = [True] * (max_n + 1)
     sieve[0] = sieve[1] = False  # 0 and 1 are not primes
     for start in range(2, int(max_n**0.5) + 1):
@@ -14,18 +15,20 @@ def sieve_of_eratosthenes(max_n):
                 sieve[i] = False
     return sieve
 
+
 def count_primes_up_to_n(n, primes):
     """Counts how many primes exist up to the given number n."""
     return sum(primes[2:n + 1])
 
+
 def isWinner(x, nums):
     """
     Determines the winner of x rounds of the Prime Game.
-    
+
     Args:
     x: Number of rounds.
     nums: List of integers, where each integer represents n in that round.
-    
+
     Returns:
     The name of the player who won the most rounds or None if it's a draw.
     """
@@ -34,10 +37,10 @@ def isWinner(x, nums):
 
     # Find the maximum n in nums to limit prime sieve computation
     max_n = max(nums)
-    
+
     # Generate primes up to the maximum number in nums
     primes = sieve_of_eratosthenes(max_n)
-    
+
     # Variables to count the number of wins for Maria and Ben
     maria_wins = 0
     ben_wins = 0
@@ -45,7 +48,7 @@ def isWinner(x, nums):
     # Play each game
     for n in nums:
         prime_count = count_primes_up_to_n(n, primes)
-        
+
         # If the count of prime moves is odd, Maria wins, else Ben wins
         if prime_count % 2 == 1:
             maria_wins += 1
